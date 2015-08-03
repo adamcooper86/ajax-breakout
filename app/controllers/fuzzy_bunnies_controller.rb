@@ -1,53 +1,39 @@
-require 'json'
-
 get "/" do
   redirect to '/bunnies'
 end
 
 get "/bunnies" do
   @cuties = FuzzyBunny.all
-  erb :"bunnies/index", layout: !request.xhr?
+  erb :"bunnies/index"
 end
 
 get "/bunnies/new" do
-  erb :"bunnies/new", layout: !request.xhr?
+  erb :"bunnies/new"
 end
 
 post '/bunnies' do
   bunny = FuzzyBunny.create(params)
-  if request.xhr?
-    return bunny.to_json
-  else
-    redirect to "/bunnies/#{bunny.id}"
-  end
+  redirect to "/bunnies/#{bunny.id}"
 end
 
 get "/bunnies/:id" do
   bunny
-  erb :"bunnies/show", layout: !request.xhr?
+  erb :"bunnies/show"
 end
 
 get '/bunnies/:id/edit' do
   bunny
-  erb :"bunnies/edit", :layout => !request.xhr?
+  erb :"bunnies/edit"
 end
 
 put '/bunnies/:id' do
   bunny.update(params)
-  if request.xhr?
-    return bunny.to_json
-  else
-    redirect to "/bunnies/#{bunny.id}"
-  end
+  redirect to "/bunnies/#{bunny.id}"
 end
 
 get '/bunnies/:id/delete' do
   bunny.destroy
-  if request.xhr?
-    status 200
-  else
-    redirect to "/bunnies"
-  end
+  redirect to "/bunnies"
 end
 
 private
