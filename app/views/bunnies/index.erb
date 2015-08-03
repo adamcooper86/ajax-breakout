@@ -1,0 +1,23 @@
+<h2><a href="/bunnies/new" id="newBunnyLink"> Make a new FuzzyBunny</a></h2>
+<div id="newBunnyForm" class="hd">
+  <h1>Ready to make a new snugglouphagous?</h1>
+  <form action="/bunnies" method="post" id="newBunny">
+    <input name="name" placeholder="name" type="text"/>
+    <input name="url" placeholder="Image URL" type="text"/>
+    <input name="cuteness" placeholder="Cuteness 1-10" type="text"/>
+    <input type="submit" value="Make A Bunny"/>
+  </form>
+</div>
+<div id="bunnyIndex">
+  <% @cuties.shuffle.each do |bunny| %>
+  <div class="bunnyWrap fl ml15 minh200">
+    <h2><%= bunny.name %></h2>
+    <p>Cuteness: <%= bunny.cuteness %></p>
+    <img class="w100" src="<%= bunny.url %>" />
+    <br />
+    <a class="bunnyProfile" href="/bunnies/<%= bunny.id %>" >Profile</a>
+    <a href="/bunnies/<%= bunny.id %>/edit" >Edit Bunnie</a>
+    <a href="/bunnies/<%= bunny.id %>/delete" >Kill Bunnie</a>
+  </div>
+  <% end %>
+</div>

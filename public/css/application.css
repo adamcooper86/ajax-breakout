@@ -1,0 +1,35 @@
+.w100 {
+  width: 100px;
+}
+
+.w400 {
+  width: 400px;
+}
+
+.cla {
+  clear: both;
+}
+
+.db {
+  display: block;
+}
+
+.fl {
+  float: left;
+}
+
+.ml15 {
+  margin-left: 15px;
+}
+
+.minh200 {
+  min-height: 200px;
+}
+
+.minw300 {
+  min-width: 300px;
+}
+
+.hd {
+  display: none;
+}

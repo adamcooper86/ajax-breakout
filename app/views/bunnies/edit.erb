@@ -1,0 +1,9 @@
+<h1>Wanna change your cutie-patootie?</h1>
+<form action="/bunnies" method="post" id="editBunny">
+  <input name="method" type="hidden" value="put" />
+  <input name="name" placeholder="name" type="text" value="<%= @bunny.name %>"/>
+  <input name="url" placeholder="Image URL" type="text" value="<%= @bunny.url %>"/>
+  <input name="cuteness" placeholder="Cuteness 1-10" type="text" value="<%= @bunny.cuteness %>" />
+
+  <input type="submit" value="Transform Your Bunny"
+</form>

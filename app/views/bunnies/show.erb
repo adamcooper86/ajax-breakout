@@ -1,0 +1,9 @@
+<div class="bunnyWrap">
+  <h2><%= bunny.name %></h2>
+  <p>Cuteness: <%= bunny.cuteness %></p>
+  <img class="w400" src="<%= bunny.url %>" />
+  <br />
+  <a href="/bunnies" >Back to the bunnies</a>
+  <a href="/bunnies/<%= bunny.id %>/edit" >Edit Bunnie</a>
+  <a href="/bunnies/<%= bunny.id %>/delete" >Kill Bunnie</a>
+</div>
