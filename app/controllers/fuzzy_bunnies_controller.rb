@@ -18,7 +18,7 @@ end
 
 get "/bunnies/:id" do
   bunny
-  erb :"bunnies/show"
+  erb :"bunnies/show", layout: false #!request.xhr?
 end
 
 get '/bunnies/:id/edit' do

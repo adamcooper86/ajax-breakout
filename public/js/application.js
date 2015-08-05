@@ -4,10 +4,18 @@ $('a.bunnyProfile').on('click', function(event){
   var bunny_method = "get"
   var bunny_url    = $(this).attr('href')
 
-  $.ajax({
+  var request = $.ajax({
     url:     bunny_url,
     method:  bunny_method
   });
+
+  request.done(function(responseData){
+    console.log('success');
+  });
+
+  request.fail(function(responseData){
+    console.log('Harvey, why? why?')
+  })
 
 });
 
