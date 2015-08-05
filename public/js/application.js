@@ -1,3 +1,31 @@
+$('a.bunnyProfile').on('click', function(event){
+  event.preventDefault();
+
+  var bunny_method = "get"
+  var bunny_url    = $(this).attr('href')
+
+  $.ajax({
+    url:     bunny_url,
+    method:  bunny_method
+  });
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function prependBunny(jsonBunny){
   var bunnyDiv = '<div class="bunnyWrap fl ml15 minh200"><h2>'
                  + jsonBunny.name + '</h2><p>Cuteness: '
