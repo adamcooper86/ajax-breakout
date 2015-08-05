@@ -10,11 +10,12 @@ $('a.bunnyProfile').on('click', function(event){
   });
 
   request.done(function(responseData){
-    console.log('success');
+    $('#bunnyIndex').html(responseData);
   });
 
   request.fail(function(responseData){
     console.log('Harvey, why? why?')
+    console.log(responseData)
   })
 
 });
