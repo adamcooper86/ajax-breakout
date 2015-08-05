@@ -13,7 +13,11 @@ end
 
 post '/bunnies' do
   bunny = FuzzyBunny.create(params)
-  redirect to "/bunnies/#{bunny.id}"
+  if request.xhr?
+    return {hello: "kent"}.to_json#something
+  else
+    redirect to "/bunnies/#{bunny.id}"
+  end
 end
 
 get "/bunnies/:id" do

@@ -1,3 +1,20 @@
+$('form#newBunny').on('submit', function(event){
+  event.preventDefault();
+
+  var url = $(this).attr('action')
+  var method = 'post'
+  var data = $(this).serialize();
+
+  var request = $.ajax({
+    url:       url,
+    method:    method,
+    data:      data,
+    dataType: 'json'
+  });
+
+});
+
+
 $('a.bunnyProfile').on('click', function(event){
   event.preventDefault();
 
