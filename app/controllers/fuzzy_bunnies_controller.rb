@@ -14,7 +14,7 @@ end
 post '/bunnies' do
   bunny = FuzzyBunny.create(params)
   if request.xhr?
-    return {hello: "kent"}.to_json#something
+    return bunny.to_json
   else
     redirect to "/bunnies/#{bunny.id}"
   end
