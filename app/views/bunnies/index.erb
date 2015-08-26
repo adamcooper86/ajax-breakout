@@ -10,7 +10,7 @@
 </div>
 <div id="bunnyIndex">
   <% @cuties.shuffle.each do |bunny| %>
-  <div class="bunnyWrap fl ml15 minh200">
+  <span class="bunnyWrap fl ml15 minh200">
     <h2><%= bunny.name %></h2>
     <p>Cuteness: <%= bunny.cuteness %></p>
     <img class="w100" src="<%= bunny.url %>" />
@@ -18,6 +18,6 @@
     <a class="bunnyProfile" href="/bunnies/<%= bunny.id %>" >Profile</a>
     <a href="/bunnies/<%= bunny.id %>/edit" >Edit Bunnie</a>
     <a href="/bunnies/<%= bunny.id %>/delete" >Kill Bunnie</a>
-  </div>
+  </span>
   <% end %>
 </div>

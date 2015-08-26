@@ -13,16 +13,18 @@ end
 
 post '/bunnies' do
   bunny = FuzzyBunny.create(params)
+  
   if request.xhr?
     return bunny.to_json
   else
     redirect to "/bunnies/#{bunny.id}"
   end
+
 end
 
 get "/bunnies/:id" do
   bunny
-  erb :"bunnies/show", layout: false #!request.xhr?
+  erb :"bunnies/show", layout: false
 end
 
 get '/bunnies/:id/edit' do

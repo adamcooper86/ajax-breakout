@@ -1,3 +1,80 @@
+$(document).ready(function() {
+
+  createBunnyListener();
+
+
+});
+
+
+var createBunnyListener = function(){
+
+  $("#newBunny").on("submit", function(event){
+    event.preventDefault();
+    // console.log('YOU GOT ME!!!!')
+    debugger
+    var url = $(this).attr('action');
+    var method = "post";
+    var data = $(this).serialize();
+    var dataType = "json";
+
+    var request = $.ajax({
+      url: url,
+      method: method,
+      data: data,
+      dataType: dataType
+    })
+
+    request.done(function(response){
+      console.log("Success");
+      console.log(response);
+      // Do this if the ajax call succeeds
+      $('#bunnyIndex').append("<span><h2>" +response.name + "</h2></span>")
+    });
+
+    request.fail(function(response){
+      console.log("Fail");
+      console.log(response);
+      // Do this if the ajax call fails
+    });
+
+  });
+}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function prependBunny(jsonBunny){
   var bunnyDiv = '<div class="bunnyWrap fl ml15 minh200"><h2>'
                  + jsonBunny.name + '</h2><p>Cuteness: '
@@ -6,69 +83,9 @@ function prependBunny(jsonBunny){
                  + jsonBunny.id + '" >Profile</a><a href="/bunnies/'
                  + jsonBunny.id + '/edit" >Edit Bunnie</a><a href="/bunnies/'
                  + jsonBunny.id + '/delete" >Kill Bunnie</a></div>'
-  debugger
+  // debugger
   $('#bunnyIndex').prepend(bunnyDiv);
 }
-
-$('form#newBunny').on('submit', function(event){
-  event.preventDefault();
-
-  var url = $(this).attr('action')
-  var method = 'post'
-  var data = $(this).serialize();
-
-  var request = $.ajax({
-    url:       url,
-    method:    method,
-    data:      data,
-    dataType: 'json'
-  });
-
-  request.done(function(responseData){
-    prependBunny(responseData);
-  });
-
-});
-
-
-$('a.bunnyProfile').on('click', function(event){
-  event.preventDefault();
-
-  var bunny_method = "get"
-  var bunny_url    = $(this).attr('href')
-
-  var request = $.ajax({
-    url:     bunny_url,
-    method:  bunny_method
-  });
-
-  request.done(function(responseData){
-    debugger
-    $('#bunnyIndex').html(responseData);
-  });
-
-  request.fail(function(responseData){
-    console.log('Harvey, why? why?')
-    console.log(responseData)
-  })
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //toggle for new bunny form
 $('a#newBunnyLink').on("click", function(event){
@@ -80,3 +97,6 @@ function toggleNewBunny(){
   $('a#newBunnyLink').toggle();
   $('div#newBunnyForm').toggle();
 }
+
+
+
